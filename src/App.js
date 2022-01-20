@@ -1,6 +1,13 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CreateEmployee from "./pages/CreateEmployee";
 
 export default function App() {
-  return <BrowserRouter></BrowserRouter>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<CreateEmployee />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }

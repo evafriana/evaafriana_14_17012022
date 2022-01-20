@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+/* font */
+$font-1: "Montserrat", sans-serif;
+$font-2: "Anton", sans-serif;
+
+/* color */
+$color-1: #c49589;
+$color-2: #d3b89f;
+$color-3: #f7f7f7;
+$color-4: #333b3f;
+
+/* media query */
+$breakpoints: (
+  tablet: 768px,
+  large-tablet: 992px,
+  desktop: 1200px,
+);
+
+/* border */
+$border-radius: 10px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  max-width: 1296px;
+  //   padding: 0 1rem;
+  font-family: $font-1;
+  color: #000;
+  background-color: $color-3;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+a:visited {
+  color: $color-4;
+}
