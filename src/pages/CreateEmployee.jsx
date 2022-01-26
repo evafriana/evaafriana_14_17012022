@@ -4,13 +4,13 @@ import Navbar from "../components/Navbar";
 
 const CreateEmployee = () => {
   return (
-    <>
+    <section>
       <Navbar />
-      <section className="createEmployee">
+      <article className="createEmployee">
         <h1 className="title">CREATE EMPLOYEE</h1>
         <Form />
-      </section>
-    </>
+      </article>
+    </section>
   );
 };
 

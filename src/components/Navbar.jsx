@@ -8,8 +8,8 @@ export default function Navbar() {
       <Link to="/">
         <Logo />
       </Link>
-      <Link className="currentEmployee" to="/">
-        <p>Current Employees</p>
+      <Link to="/employee-list">
+        <p>Employee List</p>
       </Link>
     </nav>
   );

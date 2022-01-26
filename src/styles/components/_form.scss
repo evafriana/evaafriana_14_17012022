@@ -1,16 +1,40 @@
 .form {
   border: 1px solid;
   padding: 1rem;
+  background: $color-3;
 
   @media screen and (min-width: map-get($breakpoints, tablet)) {
     margin: 0 10rem;
+    padding: 3rem;
+  }
+
+  label,
+  legend {
+    padding-bottom: 0.5rem;
+  }
+
+  input {
+    height: 2rem;
   }
 
   .field__wrapper {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .field__picker {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .state__wrapper {
+    width: 50%;
+  }
+
+  .zipcode__wrapper {
+    width: 50%;
   }
 
   .address {
@@ -26,6 +50,11 @@
   .button {
     display: flex;
     justify-content: center;
+    padding: 1rem;
+
+    @media screen and (min-width: map-get($breakpoints, tablet)) {
+      padding-top: 1.5rem;
+    }
 
     &__save {
       background-color: #c49589;
@@ -36,7 +65,7 @@
       height: 3rem;
       text-align: center;
       transition: 0.3s;
-      width: 100%;
+      width: 75%;
     }
   }
 }

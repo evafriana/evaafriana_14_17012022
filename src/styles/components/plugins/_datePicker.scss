@@ -1,0 +1,25 @@
+.datepicker {
+  @media screen and (min-width: map-get($breakpoints, tablet)) {
+    width: 20vw;
+  }
+
+  &__header {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c49589 !important;
+  }
+
+  &__select {
+    margin: 0 10px;
+  }
+
+  .icon__IoCaret {
+    display: flex;
+  }
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  background-color: #c49589 !important;
+}

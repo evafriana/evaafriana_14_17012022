@@ -1,0 +1,28 @@
+.currentEmployee {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 1rem;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    font-family: $font-2;
+    padding: 3rem 0;
+    color: $color-4;
+    font-size: 32px;
+
+    @media screen and (min-width: map-get($breakpoints, tablet)) {
+      font-size: 40px;
+    }
+  }
+
+  .lineForm {
+    background-color: #c49589;
+    height: 0.125rem;
+    margin-bottom: 2rem;
+    width: 50%;
+    display: flex;
+    align-self: center;
+  }
+}
