@@ -1,15 +1,9 @@
 import React from "react";
-import Select from "react-select";
+import { Dropdown } from "dropdown-component-library";
 
-const DropDown = (props) => {
-  return (
-    <Select
-      aria-label={props.inputName}
-      aria-haspopup="listbox"
-      className="custom-select"
-      classNamePrefix="custom-select"
-    />
-  );
+const DropDown = (width) => {
+  const myData = ["Paris", "Nantes", "Toulouse"];
+  return <Dropdown options={myData} width={width} />;
 };
 
 export default DropDown;

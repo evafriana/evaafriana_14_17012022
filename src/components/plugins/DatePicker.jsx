@@ -5,7 +5,7 @@ import range from "lodash/range";
 import { IoCaretBack, IoCaretForward } from "react-icons/io5";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function Datepicker() {
+export default function Datepicker({ maxDate, customStyle }) {
   const [startDate, setStartDate] = useState();
   const years = range(1990, getYear(new Date()) + 1, 1);
   const months = [
@@ -78,6 +78,8 @@ export default function Datepicker() {
       dateFormat="dd/MM/yyyy"
       role="button"
       aria-label="Datepicker"
+      maxDate={maxDate}
+      customStyle={customStyle}
     />
   );
 }

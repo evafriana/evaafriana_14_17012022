@@ -23,3 +23,11 @@
 .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
   background-color: #c49589 !important;
 }
+
+.react-datepicker__input-container {
+  input {
+    @media screen and (min-width: map-get($breakpoints, tablet)) {
+      width: 20vw;
+    }
+  }
+}
