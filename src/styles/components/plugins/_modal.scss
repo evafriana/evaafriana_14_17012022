@@ -1,0 +1,19 @@
+.employeeCreated {
+  display: flex;
+  align-items: center;
+
+  .cross {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    padding-right: 2rem;
+  }
+
+  h3 {
+    padding: 0 10px 1rem 0;
+    font-size: 32px;
+  }
+
+  .iconCheck {
+    font-size: 2rem;
+  }
+}

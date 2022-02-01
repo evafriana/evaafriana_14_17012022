@@ -1,12 +1,14 @@
-import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { getMonth, getYear } from "date-fns";
 import range from "lodash/range";
 import { IoCaretBack, IoCaretForward } from "react-icons/io5";
 import "react-datepicker/dist/react-datepicker.css";
+import { useFormikContext, useField } from "formik";
 
-export default function Datepicker({ maxDate, customStyle }) {
-  const [startDate, setStartDate] = useState();
+const DatePickerField = ({ ...props }) => {
+  const { setFieldValue } = useFormikContext();
+  const [field] = useField(props);
+
   const years = range(1990, getYear(new Date()) + 1, 1);
   const months = [
     "January",
@@ -25,6 +27,16 @@ export default function Datepicker({ maxDate, customStyle }) {
 
   return (
     <DatePicker
+      {...field}
+      {...props}
+      autoComplete="off"
+      selected={(field.value && new Date(field.value)) || null}
+      onChange={(val) => {
+        setFieldValue(field.name, val);
+      }}
+      dateFormat="dd/MM/yyyy"
+      role="button"
+      aria-label="Datepicker"
       renderCustomHeader={({
         date,
         changeYear,
@@ -73,13 +85,8 @@ export default function Datepicker({ maxDate, customStyle }) {
           />
         </div>
       )}
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      dateFormat="dd/MM/yyyy"
-      role="button"
-      aria-label="Datepicker"
-      maxDate={maxDate}
-      customStyle={customStyle}
     />
   );
-}
+};
+
+export default DatePickerField;
