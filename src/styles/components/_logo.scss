@@ -1,6 +1,3 @@
-// .logo {
-//   &__navbar {
-//     width: 100px;
-//     height: auto;
-//   }
-// }
+img {
+  aspect-ratio: attr(width) / attr(height);
+}

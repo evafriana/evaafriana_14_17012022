@@ -69,13 +69,13 @@ export default function EmployeeForm() {
       >
         {(formik) => (
           <Form className="form">
-            <pre>{JSON.stringify(formik.values)}</pre>
             <div className="field__wrapper">
               <label htmlFor="firstName">First Name *</label>
               <input
                 type="text"
                 name="firstName"
                 id="firstName"
+                aria-label="firstName"
                 autoComplete={"firstName"}
                 onChange={formik.handleChange}
               />
@@ -89,6 +89,7 @@ export default function EmployeeForm() {
                 type="lastName"
                 name="lastName"
                 id="lastName"
+                aria-label="lastName"
                 autoComplete={"lastName"}
                 onChange={formik.handleChange}
               />
@@ -102,6 +103,7 @@ export default function EmployeeForm() {
                 <Datepicker
                   name="dateOfBirth"
                   id="dateOfBirth"
+                  aria-label="dateOfBirth"
                   maxDate={new Date()}
                 />
                 <ErrorMessage name="dateOfBirth">
@@ -110,7 +112,11 @@ export default function EmployeeForm() {
               </div>
               <div className="field__wrapper">
                 <label htmlFor="startDate">Start Date *</label>
-                <Datepicker name="startDate" id="startDate" />
+                <Datepicker
+                  name="startDate"
+                  id="startDate"
+                  aria-label="startDate"
+                />
                 <ErrorMessage name="startDate">
                   {(msg) => <span className="errorMessage">{msg}</span>}
                 </ErrorMessage>
@@ -126,6 +132,7 @@ export default function EmployeeForm() {
                     type="street"
                     name="street"
                     id="street"
+                    aria-label="street"
                     autoComplete={"street"}
                     onChange={formik.handleChange}
                   />
@@ -139,6 +146,7 @@ export default function EmployeeForm() {
                     type="text"
                     name="city"
                     id="city"
+                    aria-label="city"
                     autoComplete={"city"}
                     onChange={formik.handleChange}
                   />
@@ -153,6 +161,7 @@ export default function EmployeeForm() {
                       options={states}
                       onSelect={(value) => formik.setFieldValue("state", value)}
                       width="100%"
+                      aria-label="state"
                     />
                   </div>
                   <ErrorMessage name="state">
@@ -165,6 +174,7 @@ export default function EmployeeForm() {
                     className="zipcode__wrapper"
                     name="zipcode"
                     id="zipcode"
+                    aria-label="zipcode"
                     autoComplete={"zipcode"}
                     onChange={formik.handleChange}
                   />
@@ -181,6 +191,7 @@ export default function EmployeeForm() {
                 <div className="formGroupItems">
                   <label htmlFor="department"></label>
                   <Dropdown
+                    aria-label="department"
                     options={departments}
                     width="100%"
                     onSelect={(value) =>

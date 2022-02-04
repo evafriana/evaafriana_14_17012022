@@ -8,7 +8,7 @@ export default function Logo() {
       src={logo}
       alt="HR Net"
       width={"100px"}
-      height={"auto"}
+      height={"100px"}
     />
   );
 }
