@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Formik, Form, ErrorMessage } from "formik";
+import { Dropdown } from "dropdown-component-library";
 import { string, object } from "yup";
 
+import actions from "../store/actions";
 import Datepicker from "./plugins/DatePicker";
-import DropDown from "./plugins/Dropdown";
 import Modal from "./plugins/Modal";
+import states from "../constants/states";
+import departments from "../constants/departments";
 
 const initialValues = {
   firstName: "",
@@ -13,9 +17,9 @@ const initialValues = {
   startDate: "",
   street: "",
   city: "",
-  // state: "",
+  state: "",
   zipcode: "",
-  // department: "",
+  department: "",
 };
 
 const validate = {
@@ -25,16 +29,27 @@ const validate = {
   startDate: string().required("Start Date is a required field"),
   street: string().required("Street is a required field"),
   city: string().required("City is a required field"),
-  // state: string().required("State is a required field"),
+  state: string().required("State is a required field"),
   zipcode: string().required("Zip Code is a required field"),
-  // department: string().required("Department is a required field"),
+  department: string().required("Department is a required field"),
 };
 
 export default function EmployeeForm() {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const getFormatedDate = (input) => {
+    const date = new Date(input);
+    const dd = String(date.getDate()).padStart(2, "0");
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const yyyy = date.getFullYear();
+
+    return dd + "/" + mm + "/" + yyyy;
   };
 
   return (
@@ -42,18 +57,19 @@ export default function EmployeeForm() {
       <Formik
         initialValues={initialValues}
         validationSchema={object().shape(validate)}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
+        onSubmit={(values) => {
+          const result = {
+            ...values,
+            dateOfBirth: getFormatedDate(values?.dateOfBirth),
+            startDate: getFormatedDate(values?.startDate),
+          };
+          dispatch(actions.createEmployee(JSON.stringify(result)));
           setShowModal(true);
         }}
       >
         {(formik) => (
           <Form className="form">
             <pre>{JSON.stringify(formik.values)}</pre>
-
             <div className="field__wrapper">
               <label htmlFor="firstName">First Name *</label>
               <input
@@ -133,7 +149,11 @@ export default function EmployeeForm() {
                 <div className="field__wrapper">
                   <label htmlFor="state">State *</label>
                   <div className="state__wrapper">
-                    <DropDown inputName="state" name="state" id="state" />
+                    <Dropdown
+                      options={states}
+                      onSelect={(value) => formik.setFieldValue("state", value)}
+                      width="100%"
+                    />
                   </div>
                   <ErrorMessage name="state">
                     {(msg) => <span className="errorMessage">{msg}</span>}
@@ -160,11 +180,12 @@ export default function EmployeeForm() {
               <article className="formGroup">
                 <div className="formGroupItems">
                   <label htmlFor="department"></label>
-                  <DropDown
-                    inputName="department"
+                  <Dropdown
+                    options={departments}
                     width="100%"
-                    name="department"
-                    id="department"
+                    onSelect={(value) =>
+                      formik.setFieldValue("department", value)
+                    }
                   />
                   <ErrorMessage name="department">
                     {(msg) => <span className="errorMessage">{msg}</span>}
@@ -174,7 +195,7 @@ export default function EmployeeForm() {
             </div>
             <div className="button">
               <button className="button__save" type="submit">
-                save
+                SAVE
               </button>
             </div>
           </Form>

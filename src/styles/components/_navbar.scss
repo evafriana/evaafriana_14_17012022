@@ -3,5 +3,16 @@
   justify-content: space-between;
   align-items: center;
   background: $color-1;
-  padding: 1rem 2rem;
+  padding: 0.1rem 2rem;
+  border-bottom: 0.1rem solid $color-2;
+
+  .hrnet {
+    font-family: $font-1;
+    color: $color-4;
+    font-size: 32px;
+
+    @media screen and (min-width: map-get($breakpoints, tablet)) {
+      font-size: 40px;
+    }
+  }
 }

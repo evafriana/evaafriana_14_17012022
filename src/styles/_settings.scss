@@ -6,8 +6,8 @@ $font-1: "Montserrat", sans-serif;
 $font-2: "Anton", sans-serif;
 
 /* color */
-$color-1: #c49589;
-$color-2: #d3b89f;
+$color-1: #ffffff;
+$color-2: #596f08;
 $color-3: #f7f7f7;
 $color-4: #333b3f;
 
@@ -33,7 +33,7 @@ body {
   //   padding: 0 1rem;
   font-family: $font-1;
   color: #000;
-  background-color: $color-3;
+  background-color: $color-1;
 }
 li {
   list-style-type: none;

@@ -18,11 +18,15 @@
   }
 
   .lineForm {
-    background-color: #c49589;
+    background-color: $color-2;
     height: 0.125rem;
     margin-bottom: 2rem;
     width: 50%;
     display: flex;
     align-self: center;
+  }
+
+  .search {
+    padding-right: 0.8rem;
   }
 }

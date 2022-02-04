@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c49589 !important;
+    background-color: $color-2 !important;
   }
 
   &__select {
@@ -21,7 +21,7 @@
 }
 
 .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
-  background-color: #c49589 !important;
+  background-color: $color-2 !important;
 }
 
 .react-datepicker__input-container {
