@@ -7,11 +7,9 @@
   border-bottom: 0.1rem solid $color-2;
 
   .hrnet {
-    font-family: $font-1;
-    color: $color-4;
-    font-size: 32px;
-
     @media screen and (min-width: map-get($breakpoints, tablet)) {
+      font-family: $font-1;
+      color: $color-4;
       font-size: 40px;
     }
   }

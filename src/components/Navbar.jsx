@@ -8,7 +8,7 @@ export default function Navbar() {
   const employeeListPage = pathname === "/employee-list";
 
   return (
-    <nav className="navbar">
+    <nav className="navbar ">
       <Link to="/">
         <Logo />
       </Link>
