@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { FaTimes } from "react-icons/fa";
 
 import Navbar from "../components/Navbar";
 import DataTable from "react-data-table-component";
@@ -43,11 +44,27 @@ const CurrentEmployee = () => {
   const subHeaderComponentMemo = React.useMemo(() => {
     return (
       <>
-        <h5 className="search">Search :</h5>
+        <label htmlFor="search" className="search">
+          Search :
+        </label>
         <input
+          id="search"
           onChange={(e) => setFilterText(e.target.value)}
           value={filterText}
         />
+
+        <button
+          onClick={() => setFilterText("")}
+          style={{
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            padding: 1,
+          }}
+          title="Clear Search"
+        >
+          <FaTimes />
+        </button>
       </>
     );
   }, [filterText]);
